@@ -1,0 +1,41 @@
+ESP8266 VIBRATION SENSOR (SW420) + BUZZER WIRING DIAGRAM
+========================================================
+
+CORRECTED WIRING (Your current wiring has issues):
+
+ESP8266 Pinout:
+- 3.3V (Power)
+- G (Ground)
+- D1 (GPIO5) - Digital Input
+- D2 (GPIO4) - Digital Output (was D4 in your setup)
+
+SW420 Vibration Sensor:
+┌─────────────────┐
+│ E-1 (VCC)  ────→ ESP8266 3.3V
+│ E-2 (GND)  ────→ ESP8266 G
+│ E-3 (DO)   ────→ ESP8266 D1 (GPIO5)
+└─────────────────┘
+
+Buzzer (Active Buzzer):
+┌─────────────────┐
+│ + (Positive) ──→ ESP8266 D2 (GPIO4)
+│ - (Negative) ──→ ESP8266 G (Ground)
+└─────────────────┘
+
+YOUR ORIGINAL WIRING ISSUES:
+1. Buzzer: You connected F-8 and + to G and D4, but:
+   - F-8 should be the negative terminal
+   - D4 should be D2 (GPIO4) for better compatibility
+   - Make sure you're using an ACTIVE buzzer (not passive)
+
+2. SW420 Sensor: Your wiring looks correct, but verify:
+   - E-1 (VCC) → 3.3V (not 5V for ESP8266)
+   - E-2 (GND) → G
+   - E-3 (DO) → D1
+
+TROUBLESHOOTING CHECKLIST:
+□ Verify all connections are secure
+□ Check that buzzer is ACTIVE (not passive)
+□ Ensure SW420 is getting 3.3V power
+□ Test each component individually
+□ Check serial monitor for debug output
