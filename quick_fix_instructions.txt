@@ -1,0 +1,47 @@
+QUICK FIX FOR YOUR ESP8266 VIBRATION SENSOR SETUP
+=================================================
+
+IMMEDIATE CHANGES NEEDED:
+
+1. **FIX BUZZER WIRING:**
+   Current: F-8 and + → G and D4
+   Correct: + → D2 (GPIO4), - → G (Ground)
+   
+2. **UPDATE CODE PIN ASSIGNMENTS:**
+   - Change D4 to D2 in the code
+   - Use D1 for sensor (your wiring is correct)
+
+3. **VERIFY BUZZER TYPE:**
+   - Make sure you have an ACTIVE buzzer
+   - Test by connecting directly to 3.3V and Ground
+
+STEP-BY-STEP FIX:
+
+1. **Reconnect buzzer:**
+   - Disconnect current buzzer wires
+   - Connect buzzer + to ESP8266 D2
+   - Connect buzzer - to ESP8266 G
+
+2. **Upload the provided code:**
+   - Open Arduino IDE
+   - Install ESP8266 board package if needed
+   - Select NodeMCU 1.0 board
+   - Upload the code
+
+3. **Test the system:**
+   - Open Serial Monitor (115200 baud)
+   - Tap the SW420 sensor
+   - Buzzer should sound for 2 seconds
+
+4. **If still not working:**
+   - Check if buzzer is active type
+   - Verify 3.3V power to sensor
+   - Try different pins (D5, D6 for sensor; D3, D7 for buzzer)
+
+COMMON MISTAKES:
+❌ Using passive buzzer instead of active
+❌ Wrong pin assignments (D4 instead of D2)
+❌ Loose connections
+❌ Wrong voltage (5V instead of 3.3V)
+
+The code I provided includes debug output to help identify issues.
